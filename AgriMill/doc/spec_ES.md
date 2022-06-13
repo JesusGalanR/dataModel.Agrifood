@@ -228,7 +228,7 @@ AgriMill:
       oneOf: *agrimill_-_properties_-_location_-_oneof    
       x-ngsi:    
         type: Geoproperty
-        oilFlow: 
+    oilFlow: 
       description: 'The observed oil flow rate in liters per hour at the trasnfer pump'    
       type: object    
       values:    
