@@ -1,0 +1,332 @@
+AgriMill:    
+  description: 'This entity contains a harmonised description of a generic Oil Mill. This entity is primarily associated with the agricultural vertical and related IoT applications.'    
+  properties:    
+    address:    
+      description: 'The mailing address'    
+      properties: &agrimill_-_properties_-_address_-_properties    
+        addressCountry:    
+          description: 'Property. The country. For example, Spain. Model:''https://schema.org/addressCountry'''    
+          type: string    
+        addressLocality:    
+          description: 'Property. The locality in which the street address is, and which is in the region. Model:''https://schema.org/addressLocality'''    
+          type: string    
+        addressRegion:    
+          description: 'Property. The region in which the locality is, and which is in the country. Model:''https://schema.org/addressRegion'''    
+          type: string    
+        postOfficeBoxNumber:    
+          description: 'Property. The post office box number for PO box addresses. For example, 03578. Model:''https://schema.org/postOfficeBoxNumber'''    
+          type: string    
+        postalCode:    
+          description: 'Property. The postal code. For example, 24004. Model:''https://schema.org/https://schema.org/postalCode'''    
+          type: string    
+        streetAddress:    
+          description: 'Property. The street address. Model:''https://schema.org/streetAddress'''    
+          type: string    
+      type: object    
+      x-ngsi:    
+        model: https://schema.org/address    
+        type: Property    
+    alternateName:    
+      description: 'An alternative name for this item'    
+      type: string    
+      x-ngsi:    
+        type: Property         
+    dataProvider:    
+      description: 'A sequence of characters identifying the provider of the harmonised data entity.'    
+      type: string    
+      x-ngsi:    
+        type: Property    
+    dateCreated:    
+      description: 'Entity creation timestamp. This will usually be allocated by the storage platform.'    
+      format: date-time    
+      type: string    
+      x-ngsi:    
+        type: Property    
+    dateModified:    
+      description: 'Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.'    
+      format: date-time    
+      type: string    
+      x-ngsi:    
+        type: Property 
+    decanterHumidity:  
+      description: 'The output decanter humidity expressed as a number between 0 and 1 representing the range 0% to 100 (%).<br/><br/>0 <= decanterHumidity <= 1' 
+      maximum: 1.0    
+      minimum: 0.0    
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property     
+    decanterTemperature: 
+      description: 'The output decanter temperature in degrees centigrade.'       
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade'   
+    description:    
+      description: 'A description of this item'    
+      type: string    
+      x-ngsi:    
+        type: Property 
+    drainFlowDecanter: 
+      description: 'The observed olive paste flow rate in kilograms per hour at the output of the decanter'    
+      type: object    
+      values:    
+        maxValue:    
+          minimum: 0    
+          type: number    
+        minValue:    
+          minimum: 0    
+          type: number    
+        unitText:    
+          type: string    
+        value:    
+          minimum: 0    
+          type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: kg/h
+    drainFlowmill:    
+      description: 'The observed olive paste flow rate in kilograms per hour at the input of the mill'    
+      type: object    
+      values:    
+        maxValue:    
+          minimum: 0    
+          type: number    
+        minValue:    
+          minimum: 0    
+          type: number    
+        unitText:    
+          type: string    
+        value:    
+          minimum: 0    
+          type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: kg/h
+    electricalConductivity:      
+      description: 'The oil drain electrical conductivity in millisiemens per centimeter.'       
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'mS/cm'    
+    filteredOil: 
+      description: 'Number of liters of olive oil filtered.'       
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'L' 
+    filteredTemperature: 
+      description: 'Filtered oil temperature in degrees centigrade.'
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade'
+    filteredTurbidity: 
+      description: 'Filtered oil turbidity in NUT.'
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'NUT'
+    foodTalcAdded: 
+      description: 'Amount of food talc added expressed as a number between 0 and 1 representing the range 0% to 100 (%).<br/><br/>0 <= foodTalcAdded <= 1' 
+      maximum: 1.0    
+      minimum: 0.0    
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property  
+    hasDevices:    
+      description: 'Reference to the IoT devices associated with this Oil Mill i.e. sensors, controls.'    
+      items:    
+        - anyOf: *anyof    
+          description: 'Property. Unique identifier of the entity'    
+      type: array    
+      x-ngsi:    
+        model: http://schema.org/URL    
+        type: Relationship        
+    id:    
+      anyOf: *anyof    
+      description: 'Unique identifier of the entity'    
+      x-ngsi:    
+        type: Property    
+    inputMillTemperature:    
+      description: 'The input mill temperature nominally in degrees centigrade.'    
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade'     
+    location:    
+      description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'    
+      oneOf: *agrimill_-_properties_-_location_-_oneof    
+      x-ngsi:    
+        type: Geoproperty
+    oilTrasnferred:
+      description: 'Number of liters of olive oil transfered.'       
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'L'     
+    oilFlow: 
+      description: 'The observed oil flow rate in liters per hour at the trasnfer pump'    
+      type: object    
+      values:    
+        maxValue:    
+          minimum: 0    
+          type: number    
+        minValue:    
+          minimum: 0    
+          type: number    
+        unitText:    
+          type: string    
+        value:    
+          minimum: 0    
+          type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: L/h
+    outputMillTemperature:    
+      description: 'The output mill temperature nominally in degrees centigrade.'    
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade' 
+    ownedBy:    
+      anyOf:    
+        - description: 'Property. Identifier format of any NGSI entity'    
+          maxLength: 256    
+          minLength: 1    
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$    
+          type: string    
+        - description: 'Property. Identifier format of any NGSI entity'    
+          format: uri    
+          type: string    
+      description: 'Owner (Person or Organization) of the farm'    
+      x-ngsi:    
+        type: Relationship
+    pneumaticValveTime: 
+      description: 'Opening time of the pneumatic valve in seconds.'   
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 's' 
+    pressureFilter: 
+      description: 'Filter pressure in bar.'   
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'bar'
+    realtiveHumidity:    
+      description: 'The inside relative humidity expressed as a number between 0 and 1 representing the range 0% to 100 (%).<br/><br/>0 <= relativeHumidity <= 1'    
+      maximum: 1.0    
+      minimum: 0.0    
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property   
+    rpmMill:    
+      description: 'Revolutions per minute of the oil mill.'    
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'revolutions per minute '
+    temperature:     
+      description: 'The average oil mill air temperature nominally in degrees centigrade.'       
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade'   
+    rpmPump:
+      description: 'Revolutions per minute of the oil pump.'    
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'rpm'  
+    temperature:     
+      description: 'The average oil mill air temperature nominally in degrees centigrade.'    
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade'
+    thermobilterPressure: 
+      description: 'Thermobilter pressure in bar.'   
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'bar'
+    thermobilterTemperature: 
+      description: 'Thermobilter temperature in degrees centigrade.'   
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade' 
+    type:    
+      description: 'NGSI Entity Type. It has to be AgriMill'    
+      enum:    
+        - AgriMill   
+      type: string    
+      x-ngsi:    
+        type: Property
+    unfilteredTemperature: 
+      description: 'Unfiltered oil temperature in degrees centigrades.'   
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade' 
+    unfilteredTurbidity: 
+      description: 'Unfiltered oil turbidity in NUT.'
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'NUT'
+    waterFlowAdded: 
+      description: 'The observed water flow rate added in kilograms per hour added to the decanter'    
+      type: object    
+      values:    
+        maxValue:    
+          minimum: 0    
+          type: number    
+        minValue:    
+          minimum: 0    
+          type: number    
+        unitText:    
+          type: string    
+        value:    
+          minimum: 0    
+          type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: L/h
+  required:    
+    - id    
+    - type    
+  type: object    
+  x-derived-from: ""    
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program'    
+  x-license-url: https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriMill/LICENSE.md    
+  x-model-schema: https://smart-data-models.github.io/dataModel.Agrifood/AgriMill/schema.json    
+  x-model-tags: ""    
+  x-version: 0.0.2    
+```  
+</details>    
