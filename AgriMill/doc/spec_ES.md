@@ -228,14 +228,7 @@ AgriMill:
       oneOf: *agrimill_-_properties_-_location_-_oneof    
       x-ngsi:    
         type: Geoproperty
-    oilTrasnferred:
-      description: 'Number of liters of olive oil transfered.'       
-      type: number    
-      x-ngsi:    
-        model: http://schema.org/Number    
-        type: Property    
-        units: 'L'     
-    oilFlow: 
+        oilFlow: 
       description: 'The observed oil flow rate in liters per hour at the trasnfer pump'    
       type: object    
       values:    
@@ -254,6 +247,22 @@ AgriMill:
         model: http://schema.org/Number    
         type: Property    
         units: L/h
+    oilTrasnferred:
+      description: 'Number of liters of olive oil transfered.'       
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'L'
+    oilType:
+      description: 'Type of oil transferred into the pumps. Enum:' Enum:'extraVirgin, virgin, lampante.''
+      enum:    
+        - extraVirgin    
+        - virgin  
+        - lampante     
+      type: string    
+      x-ngsi:    
+        type: Property    
     outputMillTemperature:    
       description: 'The output mill temperature nominally in degrees centigrade.'    
       type: number    
