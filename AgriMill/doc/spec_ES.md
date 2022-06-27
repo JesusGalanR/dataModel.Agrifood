@@ -28,6 +28,8 @@ Se van a almacenar datos de las principales variables de una almazara genérica 
 - `id`: Identificador único de la entidad.  
 - `inputMillTemperature`: Temperatura de entrada aceituna a molino en grados centígrados.
 - `location`: Referencia Geojson al elemento. Puede ser Point, LineString, Polygon, MultiPoint, MultiLineString o MultiPolygon.
+- `malaxerPressure`: Presión de entrada de la masa en la termobatidora en grados centígrados.
+- `malaxerTemperature`: Temperatura de entrada de la masa en la termobatidora en grados centígrados.
 - `oilFlow`: Caudal de aceite trasegado en litros por segundo.
 - `oilTransferred`: Cantidad de aceite trasegado en litros a través de las bombas de trasiego.
 - `oilType`: Tipo de aceite trasegado. Enum:'extraVirgin, virgin, lampante.'
@@ -39,8 +41,6 @@ Se van a almacenar datos de las principales variables de una almazara genérica 
 - `rpmMill`: Revoluciones por minuto del molino.
 - `rpmPump`: Revoluciones por minuto de la bomba de trasiego.
 - `temperature`: Temperatura del patio de almazara, normalmente en bar.
-- `thermobilterPressure`: Presión de entrada de la masa en la termobatidora en grados centígrados.
-- `thermobilterTemperature`: Temperatura de entrada de la masa en la termobatidora en grados centígrados.
 - `type`: Tipo de entidad NGSI. Tiene que ser AgriMill.
 - `unfilteredTemperature`: Temperatura de aceite sin filtrar en grados centígrados.
 - `unfilteredTurbidity`: Turbidez del aceite sin filtrar en NUT.
@@ -228,6 +228,20 @@ AgriMill:
       oneOf: *agrimill_-_properties_-_location_-_oneof    
       x-ngsi:    
         type: Geoproperty
+    malaxerPressure: 
+      description: 'Malaxer pressure in bar.'   
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'bar'
+    malaxerTemperature: 
+      description: 'Malaxer temperature in degrees centigrade.'   
+      type: number    
+      x-ngsi:    
+        model: http://schema.org/Number    
+        type: Property    
+        units: 'degrees centigrade' 
     oilFlow: 
       description: 'The observed oil flow rate in liters per hour at the trasnfer pump'    
       type: object    
@@ -333,20 +347,6 @@ AgriMill:
         model: http://schema.org/Number    
         type: Property    
         units: 'degrees centigrade'
-    thermobilterPressure: 
-      description: 'Thermobilter pressure in bar.'   
-      type: number    
-      x-ngsi:    
-        model: http://schema.org/Number    
-        type: Property    
-        units: 'bar'
-    thermobilterTemperature: 
-      description: 'Thermobilter temperature in degrees centigrade.'   
-      type: number    
-      x-ngsi:    
-        model: http://schema.org/Number    
-        type: Property    
-        units: 'degrees centigrade' 
     type:    
       description: 'NGSI Entity Type. It has to be AgriMill'    
       enum:    
